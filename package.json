@@ -1,0 +1,21 @@
+{
+  "name": "4-third-party-modules",
+  "version": "1.0.0",
+  "description": "Welcome! Here's some instructions on how to copy this Github repo template to your own Github account, clone it to your local machine, and open in VS Code so you can start coding.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RPMorrigan/node-4-third-party-modules.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RPMorrigan/node-4-third-party-modules/issues"
+  },
+  "homepage": "https://github.com/RPMorrigan/node-4-third-party-modules#readme"
+}
