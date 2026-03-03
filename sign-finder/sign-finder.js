@@ -8,55 +8,82 @@ Read the instructions in the README.md file in this folder.
 
 import horoscope from 'horoscope';
 
-let horoMode = process.argv[2]
+let userMonth = Number(process.argv[2]);
+let userDay = Number(process.argv[3]);
+let userYear = Number(process.argv[4])
 
-function hMode() {
-    if (!horoMode) {
-        return console.log('Please select a valid mode. i.e. [horoscope or zodiac');
-    }
-
-    if (horoMode === 'horoscope') {
-        return tropical();
-    }
-
-    if (horoMode === 'zodiac') {
-        return chiZodiac();
-    }
-}
-
-function tropical() {
-
-    let userMonth = Number(process.argv[3]);
-    let userDay = Number(process.argv[4]);
+function signCalc() {
 
     try {
-        if (!userDay || userMonth) {
-        return console.log('Invalid month and day. Try again!');
-    }
-
-    if (userDay && userMonth) {
-        console.log(horoscope.getSign({ month: userMonth, day: userDay }));
+        if (isNaN(userDay) || isNaN(userMonth) || isNaN(userYear)) {
+            return console.log('Invalid month, day or year. Try again!');
         }
+
+        const tropical = horoscope.getSign({ month: userMonth, day: userDay });
+        const chiZodiac = horoscope.getZodiac(userYear);
+
+        return console.log(`Your astrological sign is ${tropical} and your zodiac sign is the ${chiZodiac}`);
+
     } catch (error) {
         console.log(error);
     }
 };
 
-function chiZodiac() {
 
-    let userYear = Number(process.argv[3]);
 
-    try {
-        if (!userYear) {
-            return console.log('Invalid Year. Try again!')
-        }
+// I was working on giving the module a little more functionality.
 
-        if (userYear) {
-            return console.log(horoscope.getZodiac(userYear));
-        }
-    } catch (error) {
-        console.log(error);
-    }
-}
+// let horoMode = process.argv[2]
 
-userHoroscope();
+// function hMode() {
+//     if (!horoMode) {
+//         return console.log('Please select a valid mode. i.e. [horoscope or zodiac');
+//     }
+
+//     if (horoMode === 'horoscope') {
+//         return tropical();
+//     }
+
+//     if (horoMode === 'zodiac') {
+//         return chiZodiac();
+//     }
+// }
+
+// function tropical() {
+
+//     let userMonth = Number(process.argv[3]);
+//     let userDay = Number(process.argv[4]);
+
+//     try {
+//         if (!userDay || !userMonth) {
+//         return console.log('Invalid month and day. Try again!');
+//     }
+
+//     if (userDay && userMonth) {
+//         console.log(horoscope.getSign({ month: userMonth, day: userDay }));
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
+
+// function chiZodiac() {
+
+//     let userYear = Number(process.argv[3]);
+
+//     try {
+//         if (!userYear) {
+//             return console.log('Invalid Year. Try again!')
+//         }
+
+//         if (userYear) {
+//             return console.log(horoscope.getZodiac(userYear));
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
+
+// hMode();
+
+signCalc();
